@@ -6,113 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Directory | Holy Cross Parish</title>
     <link rel="icon" href="images/hcp-logo.png" type="image/png">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        :root{
-            --brown: #4c2b08;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        :root { --brown: #4c2b08; }
         
-        *{
-            margin: 0; padding:0;
-            box-sizing: border-box;
-            font-family: Poppins, sans-serif;
-            outline: none; border: none;
-            text-decoration: none;
-            transition: .2s linear;
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: Poppins, sans-serif; text-decoration: none; transition: .2s linear;
         }
 
-        html{
-            font-size: 62.5%;
-            scroll-behavior: smooth;
-            scroll-padding-top: 6rem;
-            overflow-x: hidden;
+        html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
+
+        /* MOBILE FONT SIZE FIX */
+        @media (max-width: 768px) { html { font-size: 50%; } }
+        @media (max-width: 450px) { html { font-size: 45%; } }
+
+        body { background-color: #ffffff; }
+
+        /* HEADER */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; background: var(--brown);
+            padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between;
+            z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        }
+        header .logo { font-size: 3rem; color: #ffffff; font-weight: bolder; }
+        header .logo span { color: #b8957f; }
+        header .navbar a { font-size: 2rem; padding: 0 1.5rem; color: #ffffff; }
+        header .navbar a:hover { color: #b79d8d; }
+        header #toggler { display: none; }
+        header .fa-bars {
+            font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem;
+            cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none;
         }
 
-        body {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-in forwards;
-            pointer-events: none;
-            background-color: #ffffff;
-        }
-
-        body.fade-in-complete {
-            pointer-events: auto;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
+        @media (max-width: 991px) {
+            header { padding: 2rem; }
+            header .fa-bars { display: block; }
+            header .navbar {
+                position: absolute; top: 100%; left: 0; right: 0; background: #eee;
+                border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column;
+            }
+            header #toggler:checked ~ .navbar { display: flex; }
+            header .navbar a {
+                display: block; margin: 1.5rem; padding: 1.5rem;
+                background: #fff; border: .1rem solid rgba(0, 0, 0, .1);
+                color: var(--brown); font-size: 2.5rem; text-align: center;
             }
         }
 
-        section{
-            padding: 2rem 9%;
-        }
-
-        .heading{
-            text-align: center;
-            font-size: 4rem;
-            color: #333;
-            padding: 1rem;
-            margin: 2rem 0;
-            background: rgba(184, 149, 127, 0.05);
-        }
-
-        .heading span{
-            color: #b8957f;
-        }
-
-        header{
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: var(--brown);
-            padding: 2rem 9%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-        }
-
-        header .logo{
-            font-size: 3rem;
-            color: #ffffff;
-            font-weight: bolder;
-            margin-left: -8rem;
-        }
-
-        header .logo span{
-            color: #b8957f;
-            font-weight: bolder;
-        }
-
-        header .navbar a{
-            font-size: 2rem;
-            padding:0 1.5rem;
-            color: #ffffff;
-        }
-
-        header .navbar a:hover{
-            color: #b79d8d;
-        }
-
-        header #toggler{
-            display: none;
-        }
-
-        header .fa-bars{
-            font-size: 3rem;
-            color: #333;
-            border-radius: .5rem;
-            padding: .5rem 1.5rem;
-            cursor: pointer;
-            border: .1rem solid rgba(0,0,0,.3);
-            display: none;
-        }
-
+        /* DIRECTORY SECTION */
         .directory {
             background-color: #f9f9f9;
             padding: 12rem 9% 5rem;
@@ -124,14 +68,10 @@
             text-align: center;
             color: #333;
             margin-bottom: 3rem;
-            transform: translateY(-2rem);
         }
 
-        .directory .heading span {
-            color: #b8957f;
-        }
+        .directory .heading span { color: #b8957f; }
 
-        /* Parish Organizational Chart Image */
         .directory .organization-container {
             width: 100%;
             max-width: 1200px;
@@ -152,91 +92,54 @@
             border-radius: 0.4rem;
         }
 
-        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .directory {
-                padding: 10rem 4% 4rem;
-            }
-
-            .directory .heading {
-                font-size: 2.7rem;
-                margin-bottom: 2rem;
-            }
-
-            .directory .organization-container {
-                padding: 0.7rem;
-            }
+            .directory { padding: 10rem 4% 4rem; }
+            .directory .heading { font-size: 2.7rem; margin-bottom: 2rem; }
+            .directory .organization-container { padding: 0.7rem; }
         }
 
+        /* FOOTER */
         footer {
-            padding: 2rem 7%;
-            text-align: center;
-            background: var(--brown);
-            color: #ffffff;
-            font-size: 1.4rem;
+            padding: 2rem 7%; text-align: center; background: var(--brown);
+            color: #ffffff; font-size: 1.4rem; margin-top: 5rem;
         }
-
-        footer a {
-            color: #02eaff;
-        }
-
     </style>
 </head>
 <body>
 
-<!--header section starts-->   
-<header>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fa fa-bars"></label>
+        <a href="index.html" class="logo">Holy Cross Parish<span>.</span></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="news.html">News &amp; Updates</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <input type="checkbox" name="" id="toggler">
-    <label for="toggler" class="fa fa-bars"></label>
+    <section class="directory" id="directory">
+        <h1 class="heading">
+            <span>Holy Cross Parish</span> Directory
+        </h1>
 
-    <a href="home.html" class="logo">Holy Cross Parish<span>.</span></a>
+        <div class="organization-container">
+            <img
+                src="images/hcp-organizational-chart.png"
+                alt="Holy Cross Parish Organizational Chart"
+                loading="lazy"
+            >
+        </div>
+    </section>
 
-    <nav class="navbar">
-        <a href="home.html"><strong>Home</strong></a>
-        <a href="about.html"><strong>About</strong></a>
-        <a href="news.html"><strong>News & Updates</strong></a>
-        <a href="directory.html"><strong>Directory</strong></a>        
-        <a href="contact.html"><strong>Contact</strong></a>
-    </nav>    
-</header>
-<!--header section ends-->
+    <footer>
+        <p>&copy; <span id="year">2026</span> Holy Cross Parish. All Rights Reserved.</p>
+    </footer>
 
-<!--directory section starts -->
-<section class="directory" id="directory">
-
-    <h1 class="heading">
-        <span>Holy Cross Parish</span> Directory
-    </h1>
-
-    <div class="organization-container">
-        <img
-            src="images/hcp-organizational-chart.png"
-            alt="Holy Cross Parish Organizational Chart"
-            loading="lazy"
-        >
-    </div>
-
-</section>
-<!--directory section ends-->
-
-<!-- footer section starts -->
-<footer>
-    <p>
-        &copy; <span id="year">2026</span> Holy Cross Parish.
-        All Rights Reserved.
-    </p>
-</footer>
-<!-- footer section ends -->
-
-<script>
-    window.addEventListener('load', function() {
-        document.body.classList.add('fade-in-complete');
-    });
-    
-    // Automatically update the copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
