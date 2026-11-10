@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,453 +12,111 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        :root { --brown: #4c2b08; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; outline: none; border: none; text-decoration: none; transition: .2s linear; }
+        html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
 
-        :root {
-            --brown: #4c2b08;
-        }
+        @media (max-width: 768px) { html { font-size: 50%; } }
+        @media (max-width: 450px) { html { font-size: 45%; } }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Poppins, sans-serif;
-            outline: none;
-            border: none;
-            text-decoration: none;
-            transition: .2s linear;
-        }
+        body { opacity: 0; animation: fadeIn .8s ease-in forwards; pointer-events: none; background-color: #ffffff; }
+        body.fade-in-complete { pointer-events: auto; }
+        @keyframes fadeIn { to { opacity: 1; } }
 
-        html {
-            font-size: 62.5%;
-            scroll-behavior: smooth;
-            scroll-padding-top: 6rem;
-            overflow-x: hidden;
-        }
+        section { padding: 2rem 9%; }
+        .heading { text-align: center; font-size: 4rem; color: #333; padding: 1rem; margin: 2rem 0; background: rgba(184, 149, 127, 0.05); }
+        .heading span { color: #b8957f; }
 
-        body {
-            opacity: 0;
-            animation: fadeIn .8s ease-in forwards;
-            pointer-events: none;
-            background-color: #ffffff;
-        }
+        header { position: fixed; top: 0; left: 0; right: 0; background: var(--brown); padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1); }
+        header .logo { font-size: 3rem; color: #ffffff; font-weight: bolder; }
+        header .logo span { color: #b8957f; font-weight: bolder; }
+        header .navbar a { font-size: 2rem; padding: 0 1.5rem; color: #ffffff; }
+        header .navbar a:hover { color: #b79d8d; }
+        header #toggler { display: none; }
+        header .fa-bars { font-size: 3rem; color: #333; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(0, 0, 0, .3); display: none; }
 
-        body.fade-in-complete {
-            pointer-events: auto;
-        }
+        .contact { background-color: #f9f9f9; position: fixed; top: 8rem; bottom: 5.5rem; left: 0; right: 0; padding: 1.5rem 9%; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+        .contact .heading { flex-shrink: 0; margin: -1rem 0 2rem; transform: translateY(-8rem); }
+        .contact .contact-container { display: flex; flex-wrap: nowrap; gap: 4rem; justify-content: center; align-items: center; width: 100%; min-height: 0; }
+        .contact .contact-form { flex: 1 1 50%; min-width: 0; background: #fff; border-radius: .5rem; box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .08); padding: 3rem; border: .1rem solid rgba(0, 0, 0, .08); }
+        .contact .contact-message { font-size: 1.6rem; color: #555; line-height: 1.9; margin-bottom: 2.5rem; }
+        .contact .contact-form .btn { display: inline-flex; align-items: center; justify-content: center; gap: .8rem; width: 100%; padding: 1.3rem 2rem; border-radius: .5rem; background: var(--brown); color: #fff; cursor: pointer; font-size: 1.6rem; font-weight: 600; text-align: center; }
+        .contact .contact-form .btn:hover { background: #b8957f; }
+        .contact .contact-form .btn i { font-size: 2rem; }
+        .contact .image { flex: 1 1 40%; min-width: 0; display: flex; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none; padding: 0; }
+        .contact .image img { display: block; width: 100%; max-width: 42rem; max-height: 45vh; object-fit: contain; }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
+        footer { position: fixed; bottom: 0; left: 0; width: 100%; height: 5.5rem; padding: 1.8rem 2rem; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; z-index: 999; }
 
-        section {
-            padding: 2rem 9%;
-        }
-
-        /* HEADING */
-
-        .heading {
-            text-align: center;
-            font-size: 4rem;
-            color: #333;
-            padding: 1rem;
-            margin: 2rem 0;
-            background: rgba(184, 149, 127, 0.05);
-        }
-
-        .heading span {
-            color: #b8957f;
-        }
-
-        /* HEADER */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--brown);
-            padding: 2rem 9%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-        }
-
-        header .logo {
-            font-size: 3rem;
-            color: #ffffff;
-            font-weight: bolder;
-            margin-left: -8rem;
-        }
-
-        header .logo span {
-            color: #b8957f;
-            font-weight: bolder;
-        }
-
-        header .navbar a {
-            font-size: 2rem;
-            padding: 0 1.5rem;
-            color: #ffffff;
-        }
-
-        header .navbar a:hover {
-            color: #b79d8d;
-        }
-
-        header #toggler {
-            display: none;
-        }
-
-        header .fa-bars {
-            font-size: 3rem;
-            color: #333;
-            border-radius: .5rem;
-            padding: .5rem 1.5rem;
-            cursor: pointer;
-            border: .1rem solid rgba(0, 0, 0, .3);
-            display: none;
-        }
-
-        /* CONTACT SECTION */
-        .contact {
-            background-color: #f9f9f9;
-            position: fixed;
-            top: 8rem;
-            bottom: 5.5rem;
-            left: 0;
-            right: 0;
-            padding: 1.5rem 9%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .contact .heading {
-            flex-shrink: 0;
-            margin: -1rem 0 2rem;
-            transform: translateY(-8rem);
-        }
-
-        .contact .contact-container {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 4rem;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            min-height: 0;
-        }
-
-        .contact .contact-form {
-            flex: 1 1 50%;
-            min-width: 0;
-            background: #fff;
-            border-radius: .5rem;
-            box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .08);
-            padding: 3rem;
-            border: .1rem solid rgba(0, 0, 0, .08);
-        }
-
-        .contact .contact-message {
-            font-size: 1.6rem;
-            color: #555;
-            line-height: 1.9;
-            margin-bottom: 2.5rem;
-        }
-
-        .contact .contact-form .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: .8rem;
-            width: 100%;
-            padding: 1.3rem 2rem;
-            border-radius: .5rem;
-            background: var(--brown);
-            color: #fff;
-            cursor: pointer;
-            font-size: 1.6rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .contact .contact-form .btn:hover {
-            background: #b8957f;
-        }
-
-        .contact .contact-form .btn i {
-            font-size: 2rem;
-        }
-
-        .contact .image {
-            flex: 1 1 40%;
-            min-width: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            padding: 0;
-        }
-
-        .contact .image img {
-            display: block;
-            width: 100%;
-            max-width: 42rem;
-            max-height: 45vh;
-            object-fit: contain;
-        }
-
-        /* FOOTER */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5.5rem;
-            padding: 1.8rem 2rem;
-            text-align: center;
-            background: var(--brown);
-            color: #ffffff;
-            font-size: 1.4rem;
-            z-index: 999;
-        }
-
-        footer a {
-            color: #02eaff;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1200px) {
-            header .logo {
-                margin-left: 0;
-            }
-
-            header .navbar a {
-                font-size: 1.7rem;
-                padding: 0 .8rem;
-            }
-        }
+        @media (max-width: 1200px) { header .navbar a { font-size: 1.7rem; padding: 0 .8rem; } }
 
         @media (max-width: 991px) {
-            html {
-                font-size: 55%;
-            }
-
-            header {
-                padding: 2rem 4%;
-            }
-
-            .contact {
-                padding-left: 4%;
-                padding-right: 4%;
-            }
+            html { font-size: 55%; }
+            header { padding: 2rem 4%; }
+            .contact { padding-left: 4%; padding-right: 4%; }
         }
 
         @media (max-width: 768px) {
-            header .fa-bars {
-                display: block;
-                color: #fff;
-                border-color: rgba(255, 255, 255, .5);
-            }
+            header .fa-bars { display: block; color: #fff; border-color: rgba(255, 255, 255, .5); }
+            header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; display: none; flex-direction: column; padding: 1rem 0; border-top: .1rem solid rgba(0, 0, 0, .1); }
+            header #toggler:checked ~ .navbar { display: flex; }
+            header .navbar a { display: block; width: 100%; padding: 1.3rem 2rem; font-size: 2.5rem; color: var(--brown); text-align: center; margin: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); }
+            header .logo { font-size: 2.5rem; }
 
-            header .navbar {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #0F6A7B;
-                display: none;
-                flex-direction: column;
-                padding: 1rem 0;
-            }
-
-            header #toggler:checked ~ .navbar {
-                display: flex;
-            }
-
-            header .navbar a {
-                display: block;
-                width: 100%;
-                padding: 1.3rem 2rem;
-                font-size: 1.7rem;
-            }
-
-            header .logo {
-                font-size: 2.5rem;
-            }
-
-            .contact {
-                top: 7rem;
-                bottom: 5.5rem;
-                padding: 1rem 4%;
-            }
-
-            .contact .heading {
-                font-size: 3rem;
-                margin: .5rem 0 1rem;
-            }
-
-            .contact .contact-container {
-                flex-direction: column;
-                flex-wrap: nowrap;
-                gap: 1rem;
-            }
-
-            .contact .contact-form {
-                flex: 0 1 auto;
-                width: 100%;
-                padding: 1.5rem;
-            }
-
-            .contact .contact-message {
-                font-size: 1.4rem;
-                line-height: 1.6;
-                margin-bottom: 1.5rem;
-            }
-
-            .contact .contact-form .btn {
-                padding: 1rem;
-            }
-
-            .contact .image {
-                flex: 1 1 auto;
-                width: 100%;
-                min-height: 0;
-            }
-
-            .contact .image img {
-                max-height: 22vh;
-                width: auto;
-                max-width: 80%;
-            }
+            .contact { top: 7rem; bottom: 5.5rem; padding: 1rem 4%; }
+            .contact .heading { font-size: 3rem; margin: .5rem 0 1rem; transform: none; }
+            .contact .contact-container { flex-direction: column; flex-wrap: nowrap; gap: 1rem; }
+            .contact .contact-form { flex: 0 1 auto; width: 100%; padding: 1.5rem; }
+            .contact .contact-message { font-size: 1.4rem; line-height: 1.6; margin-bottom: 1.5rem; }
+            .contact .contact-form .btn { padding: 1rem; }
+            .contact .image { flex: 1 1 auto; width: 100%; min-height: 0; }
+            .contact .image img { max-height: 22vh; width: auto; max-width: 80%; }
         }
 
-        @media (max-width: 450px) {
-            html {
-                font-size: 50%;
-            }
+        @media (max-width: 450px) { html { font-size: 50%; } .contact .heading { font-size: 2.8rem; } .contact .contact-form { padding: 1.5rem; } }
 
-            .contact .heading {
-                font-size: 2.8rem;
-            }
-
-            .contact .contact-form {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Short screens */
         @media (max-height: 600px) {
-            .contact .heading {
-                margin: .3rem 0 .8rem;
-                padding: .3rem;
-                font-size: 2.8rem;
-            }
-
-            .contact .contact-form {
-                padding: 1.5rem;
-            }
-
-            .contact .contact-message {
-                margin-bottom: 1rem;
-                line-height: 1.5;
-            }
-
-            .contact .image img {
-                max-height: 25vh;
-            }
+            .contact .heading { margin: .3rem 0 .8rem; padding: .3rem; font-size: 2.8rem; }
+            .contact .contact-form { padding: 1.5rem; }
+            .contact .contact-message { margin-bottom: 1rem; line-height: 1.5; }
+            .contact .image img { max-height: 25vh; }
         }
     </style>
 </head>
-
 <body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fa fa-bars"></label>
+        <a href="index.html" class="logo">Holy Cross Parish<span>.</span></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="news.html">News &amp; Updates</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact</a>
+        </nav> 
+    </header>
 
-<!--header section starts-->
-<header>
-    <input type="checkbox" name="" id="toggler">
-    <label for="toggler" class="fa fa-bars"></label>
-
-    <a href="#home" class="logo">Holy Cross Parish<span>.</span></a>
-
-    <nav class="navbar">
-        <a href="home.html"><strong>Home</strong></a>
-        <a href="about.html"><strong>About</strong></a>
-        <a href="news.html"><strong>News & Updates</strong></a>
-        <a href="directory.html"><strong>Directory</strong></a>        
-        <a href="contact.html"><strong>Contact</strong></a>
-    </nav> 
-</header>
-<!--header section ends-->
-
-<!-- CONTACT SECTION STARTS -->
-<section class="contact" id="contact">
-
-    <h1 class="heading">Contact <span>Us</span></h1>
-
-    <div class="contact-container">
-
-        <!-- CONTACT MESSAGE AND BUTTON -->
-        <div class="contact-form">
-            <p class="contact-message">
-                Have questions, prayer requests, or inquiries about
-                our parish services? Send us a message through
-                Facebook Messenger. We will be happy to assist you.
-            </p>
-
-            <a
-                href="https://m.me/holycrossparishalcala"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <i class="fa-brands fa-facebook-messenger"></i>
-                Send Message
-            </a>
+    <section class="contact" id="contact">
+        <h1 class="heading">Contact <span>Us</span></h1>
+        <div class="contact-container">
+            <div class="contact-form">
+                <p class="contact-message">Have questions, prayer requests, or inquiries about our parish services? Send us a message through Facebook Messenger. We will be happy to assist you.</p>
+                <a href="https://m.me/holycrossparishalcala" class="btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook-messenger"></i> Send Message
+                </a>
+            </div>
+            <div class="image">
+                <img src="images/contact-us.svg" alt="Contact Us">
+            </div>
         </div>
+    </section>
 
-        <!-- CONTACT IMAGE -->
-        <div class="image">
-            <img src="images/contact-us.svg" alt="Contact Us">
-        </div>
+    <footer><p>&copy; <span id="year">2026</span> Holy Cross Parish. All Rights Reserved.</p></footer>
 
-    </div>
-
-</section>
-<!-- CONTACT SECTION ENDS -->
-
-<!-- footer section starts -->
-<footer>
-    <p>
-        &copy; <span id="year">2026</span> Holy Cross Parish.
-        All Rights Reserved.
-    </p>
-</footer>
-<!-- footer section ends -->
-
-<script>
-    window.addEventListener('load', function () {
-        document.body.classList.add('fade-in-complete');
-    });
-
-    function openMessenger(event) {
-    event.preventDefault();
-
-    const pageUsername = "holycrossparishalcala";
-    const messengerURL = "https://m.me/" + pageUsername;
-
-    window.open(messengerURL, "_blank", "noopener,noreferrer");
-}
-
-    // Automatically update the copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+    <script>
+        window.addEventListener('load', function () { document.body.classList.add('fade-in-complete'); });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
