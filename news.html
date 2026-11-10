@@ -28,31 +28,25 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
+        /* INAYOS NA HEADER PARA SA MOBILE */
         @media (max-width: 991px) {
-            header { padding: 2rem; }
-            header .fa-bars { display: block; }
+            header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; }
+            header .fa-bars { display: block; margin-right: 1rem; }
+            header .logo { font-size: 2.2rem; }
             header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
-            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2.5rem; text-align: center; }
+            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2rem; text-align: center; }
         }
 
         .news { background-color: #f1f3f5; padding: 12rem 9% 5rem; min-height: 100vh; }
         .news .heading { font-size: 3.5rem; text-align: center; color: #333; margin-bottom: 3rem; }
         .news .heading span { color: #b8957f; }
-
         .news .news-container { display: flex; justify-content: center; align-items: flex-start; width: 100%; }
-
         .facebook-post-container { width: 100%; max-width: 600px; background: #fff; border: 1px solid #dfe3e8; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); overflow: hidden; }
-
-        /* FIX: Ginawang 100% para hindi lumabas sa screen */
         .facebook-post { width: 100%; display: flex; justify-content: center; }
         .facebook-post iframe { display: block; width: 100% !important; max-width: 500px; border: none; }
 
-        @media (max-width: 768px) {
-            .news { padding: 10rem 4% 4rem; }
-            .news .heading { font-size: 2.7rem; }
-            .facebook-post-container { padding: 1rem; }
-        }
+        @media (max-width: 768px) { .news { padding: 10rem 4% 4rem; } .news .heading { font-size: 2.7rem; } .facebook-post-container { padding: 1rem; } }
 
         footer { padding: 2rem 7%; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; margin-top: 5rem; }
     </style>
@@ -76,13 +70,7 @@
         <div class="news-container">
             <div class="facebook-post-container">
                 <div class="facebook-post">
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D452676493560614%26set%3Da.452676470227283&show_text=true&width=500" 
-                        style="border:none;overflow:hidden; width:100%; height:600px;" 
-                        scrolling="no" 
-                        frameborder="0" 
-                        allowfullscreen="true" 
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D452676493560614%26set%3Da.452676470227283&show_text=true&width=500" style="border:none;overflow:hidden; width:100%; height:600px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
             </div>
         </div>
