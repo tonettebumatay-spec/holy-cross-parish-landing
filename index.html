@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Holy Cross Parish</title>
+
     <link rel="icon" href="images/hcp-logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -14,6 +16,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         :root { --brown: #4c2b08; }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; outline: none; border: none; text-decoration: none; transition: .2s linear; }
         html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
 
@@ -94,16 +97,41 @@
         .services .box i { font-size: 4rem; color: #b8957f; margin-bottom: 1.5rem; }
         .services .box h3 { font-size: 2rem; color: #fff; margin-bottom: 1rem; }
         .services .box p { font-size: 1.4rem; line-height: 1.7; color: #f3eae4; }
+
         @media (max-width: 900px) { .services .box-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .services { padding: 3rem 5%; } .services .box-container { grid-template-columns: 1fr; gap: 1.5rem; } .services .box { padding: 2.5rem 2rem; } }
 
+        /* --- VIDEO SECTION (Inayos para sa FB Reel) --- */
         .video-section { background: #fff; text-align: center; padding: 5rem 9%; }
         .video-section h2 { font-size: 3.5rem; color: #4c2b08; margin-bottom: 2rem; }
         .video-section h2 span { color: #b8957f; }
-        .video-container { max-width: 800px; margin: 0 auto; position: relative; padding-bottom: 45%; height: 0; overflow: hidden; border-radius: 1.5rem; box-shadow: 0 1rem 2rem rgba(0,0,0,0.15); }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        @media (max-width: 600px) { .video-container { padding-bottom: 56.25%; } .video-section h2 { font-size: 2.5rem; } }
+        
+        .video-container {
+            max-width: 400px; /* Pinaliit natin ang max-width para magmukhang Reel */
+            margin: 0 auto;
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+            background: #000;
+        }
 
+        /* Ginawa nating 100% ang iframe sa loob ng container */
+        .video-container iframe {
+            display: block;
+            width: 100% !important;
+            height: 700px !important; /* Mataas na height para sa vertical reel */
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            .video-section h2 { font-size: 2.5rem; }
+            .video-container iframe {
+                height: 600px !important; /* Inaayos ang height sa phone */
+            }
+        }
+
+        /* --- SOCIAL MEDIA SECTION --- */
         .social-media { background: #fff; padding: 4rem 9%; text-align: center; }
         .social-media h2 { font-size: 3rem; color: #4c2b08; margin-bottom: 1rem; }
         .social-media h2 span { color: #b8957f; }
@@ -115,6 +143,7 @@
         .social-media .social-item p { font-size: 1.3rem; color: #555; line-height: 1.6; margin-bottom: 1.5rem; }
         .social-media .social-item a { display: inline-block; background: #4c2b08; color: #fff; padding: .9rem 2rem; border-radius: 3rem; font-size: 1.3rem; font-weight: 600; }
         .social-media .social-item a:hover { background: #b8957f; }
+
         @media (max-width: 900px) { .social-media .social-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .social-media { padding: 3rem 5%; } .social-media h2 { font-size: 2.5rem; } .social-media .social-links { grid-template-columns: 1fr; } }
 
@@ -123,6 +152,7 @@
 </head>
 
 <body>
+
     <header>
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fa fa-bars"></label>
@@ -200,7 +230,14 @@
     <section class="video-section" id="video">
         <h2>Feast of the <span>Exaltation</span></h2>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/1Ta4ZQ14eXc?si=xXqM6k7e77ye2ukF" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- FB REEL EMBED CODE -->
+            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1421252250149248%2F&show_text=false&width=560&t=0" 
+                    scrolling="no" 
+                    frameborder="0" 
+                    allowfullscreen="true" 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+                    allowFullScreen="true">
+            </iframe>
         </div>
     </section>
 
