@@ -12,210 +12,55 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         
-        :root {
-            --brown: #4c2b08;
-        }
+        :root { --brown: #4c2b08; }
         
-        * {
-            margin: 0; padding: 0;
-            box-sizing: border-box;
-            font-family: Poppins, sans-serif;
-            outline: none; border: none;
-            text-decoration: none;
-            transition: .2s linear;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; outline: none; border: none; text-decoration: none; transition: .2s linear; }
 
-        html {
-            font-size: 62.5%;
-            scroll-behavior: smooth;
-            scroll-padding-top: 6rem;
-            overflow-x: hidden;
-        }
+        html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
 
-        /* FIX PARA SA MOBILE FONTS */
-        @media (max-width: 768px) {
-            html { font-size: 50%; }
-        }
-        @media (max-width: 450px) {
-            html { font-size: 45%; }
-        }
+        @media (max-width: 768px) { html { font-size: 50%; } }
+        @media (max-width: 450px) { html { font-size: 45%; } }
 
-        body {
-            background-color: #ffffff;
-            opacity: 1;
-            animation: pageFadeIn .8s ease-out both;
-        }
+        body { background-color: #ffffff; opacity: 1; animation: pageFadeIn .8s ease-out both; }
+        @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @keyframes pageFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        section { padding: 3.7rem 9%; }
 
-        section {
-            padding: 3.7rem 9%;
-        }
-
-        /* --- HEADER (INAYOS PARA SA MOBILE) --- */
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: var(--brown);
-            padding: 2rem 9%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-        }
-
-        header .logo {
-            font-size: 3rem;
-            color: #ffffff;
-            font-weight: bolder;
-        }
-
-        header .logo span {
-            color: #b8957f;
-            font-weight: bolder;
-        }
-
-        header .navbar a {
-            font-size: 2rem;
-            padding: 0 1.5rem;
-            color: #ffffff;
-        }
-
-        header .navbar a:hover {
-            color: #b79d8d;
-        }
-
+        header { position: fixed; top: 0; left: 0; right: 0; background: var(--brown); padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); }
+        header .logo { font-size: 3rem; color: #ffffff; font-weight: bolder; }
+        header .logo span { color: #b8957f; font-weight: bolder; }
+        header .navbar a { font-size: 2rem; padding: 0 1.5rem; color: #ffffff; }
+        header .navbar a:hover { color: #b79d8d; }
         header #toggler { display: none; }
-
-        header .fa-bars {
-            font-size: 3rem;
-            color: #ffffff;
-            border-radius: .5rem;
-            padding: .5rem 1.5rem;
-            cursor: pointer;
-            border: .1rem solid rgba(255, 255, 255, 0.3);
-            display: none;
-        }
+        header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
         @media (max-width: 991px) {
             header { padding: 2rem; }
             header .fa-bars { display: block; }
-            header .navbar {
-                position: absolute;
-                top: 100%; left: 0; right: 0;
-                background: #eee;
-                border-top: .1rem solid rgba(0, 0, 0, .1);
-                display: none;
-                flex-direction: column;
-            }
+            header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
-            header .navbar a {
-                display: block;
-                margin: 1.5rem;
-                padding: 1.5rem;
-                background: #fff;
-                border: .1rem solid rgba(0, 0, 0, .1);
-                color: var(--brown);
-                font-size: 2.5rem;
-                text-align: center;
-            }
+            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2.5rem; text-align: center; }
         }
 
-        /* --- ABOUT SECTION --- */
-        .about {
-            padding-top: 12rem; /* Para hindi matakpan ng header */
-            padding-left: 9%;
-            padding-right: 9%;
-        }
+        .about { padding-top: 12rem; padding-left: 9%; padding-right: 9%; }
+        .about .row { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; padding: 2rem 0; padding-bottom: 3rem; }
+        .about .row .image-container { flex: 1 1 40rem; position: relative; }
+        .about .row .image-container img { width: 100%; border: 1.5rem solid #fff; border-radius: .5rem; box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); height: 100%; object-fit: cover; }
+        .about .row .content { flex: 1 1 40rem; }
+        .about .row .content h3 { font-size: 3rem; color: #333; margin-bottom: 1rem; }
+        .about .row .content p { font-size: 1.5rem; color: #555; padding-top: 1rem; line-height: 1.6; text-align: justify; }
+        .about .btn { display: inline-block; margin-top: 1.5rem; border-radius: 5rem; background: var(--brown); color: #fff; padding: 1rem 3.5rem; cursor: pointer; font-size: 1.7rem; }
+        .about .btn:hover { background: #b8957f; }
 
-        .about .row {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding: 2rem 0;
-            padding-bottom: 3rem;
-        }
-
-        .about .row .image-container {
-            flex: 1 1 40rem;
-            position: relative;
-        }
-
-        /* Pinalitan ang video ng larawan dahil hindi naka-upload ang video */
-        .about .row .image-container img {
-            width: 100%;
-            border: 1.5rem solid #fff;
-            border-radius: .5rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about .row .content {
-            flex: 1 1 40rem;
-        }
-
-        .about .row .content h3 {
-            font-size: 3rem;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .about .row .content p {
-            font-size: 1.5rem;
-            color: #555;
-            padding-top: 1rem;
-            line-height: 1.6;
-            text-align: justify;
-        }
-
-        .about .btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            border-radius: 5rem;
-            background: var(--brown);
-            color: #fff;
-            padding: 1rem 3.5rem;
-            cursor: pointer;
-            font-size: 1.7rem;
-        }
-
-        .about .btn:hover {
-            background: #b8957f;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 2rem 7%;
-            text-align: center;
-            background: var(--brown);
-            color: #ffffff;
-            font-size: 1.4rem;
-        }
-
-        @media (max-width: 600px) {
-            .about {
-                padding-top: 10rem;
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-        }
+        footer { padding: 2rem 7%; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; }
+        @media (max-width: 600px) { .about { padding-top: 10rem; padding-left: 5%; padding-right: 5%; } }
     </style>
 </head>
 <body>
-
-    <!-- HEADER SECTION -->
     <header>
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fa fa-bars"></label>
-
         <a href="index.html" class="logo">Holy Cross Parish<span>.</span></a>
-
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -225,45 +70,22 @@
         </nav>
     </header>
 
-    <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="row">
-            <!-- Pinalitan natin ng larawan (HCP3.jpg) para may makita kahit walang video -->
             <div class="image-container">
                 <img src="images/HCP3.jpg" alt="Holy Cross Parish History">
             </div>
-
             <div class="content">
                 <h3>The History of Holy Cross Parish</h3>
-                <p>The 1881 Holy Cross Parish Church is a Vicariate of Sacred Heart. Its Feast Day are May 3 is the Feast of the 
-                    Finding of the True Cross and September 14 is the Feast of the Exaltation of the Holy Cross, with the present 
-                    Parish Priest, Rev. Fr. Christopher Elisar "Ralphie" M. Itchon under the jurisdiction of the Roman Catholic 
-                    Diocese of Urdaneta.<br><br>
-                    The January 4, 1881 Spanish Royal Decree of the Spanish Government created the Parish of the Holy Cross 
-                    and accepted by the Dominicans (House of the Order) on November of 188. Padre Eduardo Saamaniego, O.P., 
-                    was appointed first parish priest on February 21, 1882. The convent was erected under Fr. Revilla and 
-                    Fr. Casamitjana but the same was destroyed.<br><br>
-                    In 1950, Padre Jose V. Ferrer caused the destruction of the old church and instead built a semi-concrete edifice. 
-                    Aided by Bishop Jesus Sison and Archbishop Mariano Madriaga, the Priest founded the Holy Rood Academy. Fr. Amado Lopez 
-                    continued the rehabilitation of the Church and school but the 1967 and 1968 Casiguran earthquake annihilated the 
-                    Church. Thus, Fr. Eusebio Vigilia and Fr. Johnny Tagalicud (1972-1977) rehabilitated the present new Church. 
-                    (Source, 2007 Fiesta Yearbook of Bani, Pangasinan Church).
-                </p>
+                <p>The 1881 Holy Cross Parish Church is a Vicariate of Sacred Heart. Its Feast Day are May 3 is the Feast of the Finding of the True Cross and September 14 is the Feast of the Exaltation of the Holy Cross, with the present Parish Priest, Rev. Fr. Christopher Elisar "Ralphie" M. Itchon under the jurisdiction of the Roman Catholic Diocese of Urdaneta.<br><br>
+                The January 4, 1881 Spanish Royal Decree of the Spanish Government created the Parish of the Holy Cross and accepted by the Dominicans (House of the Order) on November of 188. Padre Eduardo Saamaniego, O.P., was appointed first parish priest on February 21, 1882. The convent was erected under Fr. Revilla and Fr. Casamitjana but the same was destroyed.<br><br>
+                In 1950, Padre Jose V. Ferrer caused the destruction of the old church and instead built a semi-concrete edifice. Aided by Bishop Jesus Sison and Archbishop Mariano Madriaga, the Priest founded the Holy Rood Academy. Fr. Amado Lopez continued the rehabilitation of the Church and school but the 1967 and 1968 Casiguran earthquake annihilated the Church. Thus, Fr. Eusebio Vigilia and Fr. Johnny Tagalicud (1972-1977) rehabilitated the present new Church. (Source, 2007 Fiesta Yearbook of Bani, Pangasinan Church).</p>
                 <a href="directory.html" class="btn">Browse Directory</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>
-            &copy; <span id="year">2026</span> Holy Cross Parish.
-            All Rights Reserved.
-        </p>
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <footer><p>&copy; <span id="year">2026</span> Holy Cross Parish. All Rights Reserved.</p></footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
