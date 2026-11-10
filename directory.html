@@ -28,35 +28,23 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
+        /* INAYOS NA HEADER PARA SA MOBILE */
         @media (max-width: 991px) {
-            header { padding: 2rem; }
-            header .fa-bars { display: block; }
+            header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; }
+            header .fa-bars { display: block; margin-right: 1rem; }
+            header .logo { font-size: 2.2rem; }
             header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
-            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2.5rem; text-align: center; }
+            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2rem; text-align: center; }
         }
 
         .directory { background-color: #f9f9f9; padding: 12rem 9% 5rem; min-height: 100vh; }
         .directory .heading { font-size: 3.5rem; text-align: center; color: #333; margin-bottom: 3rem; }
         .directory .heading span { color: #b8957f; }
+        .directory .organization-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 1.5rem; background: #ffffff; border: 1px solid rgba(76, 43, 8, 0.12); border-radius: 0.8rem; box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08); overflow-x: auto; }
+        .directory .organization-container img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0.4rem; min-width: 600px; }
 
-        .directory .organization-container {
-            width: 100%; max-width: 1200px; margin: 0 auto; padding: 1.5rem;
-            background: #ffffff; border: 1px solid rgba(76, 43, 8, 0.12); border-radius: 0.8rem;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08); overflow-x: auto; /* Pina-zoom/scroll sa mobile */
-        }
-
-        /* FIX: Para maview ng maayos yung malaking organizational chart sa phone */
-        .directory .organization-container img {
-            display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0.4rem;
-            min-width: 600px; /* Pwede i-scroll pakaliwa o pakanan sa phone */
-        }
-
-        @media (max-width: 768px) {
-            .directory { padding: 10rem 4% 4rem; }
-            .directory .heading { font-size: 2.7rem; margin-bottom: 2rem; }
-            .directory .organization-container { padding: 0.7rem; }
-        }
+        @media (max-width: 768px) { .directory { padding: 10rem 4% 4rem; } .directory .heading { font-size: 2.7rem; margin-bottom: 2rem; } .directory .organization-container { padding: 0.7rem; } }
 
         footer { padding: 2rem 7%; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; margin-top: 5rem; }
     </style>
