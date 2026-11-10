@@ -8,15 +8,9 @@
     <title>Holy Cross Parish</title>
 
     <link rel="icon" href="images/hcp-logo.png" type="image/png">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet"
-          href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -37,10 +31,22 @@
         }
 
         html {
-            font-size: 62.5%;
+            font-size: 62.5%; /* 1rem = 10px */
             scroll-behavior: smooth;
             scroll-padding-top: 6rem;
             overflow-x: hidden;
+        }
+
+        /* --- PAGO PARA SA MOBILE (Inaayos ang sobrang laking fonts) --- */
+        @media (max-width: 768px) {
+            html {
+                font-size: 50%; /* Papaliitin ang base font size sa phone */
+            }
+        }
+        @media (max-width: 450px) {
+            html {
+                font-size: 45%; /* Mas maliit pa para sa maliliit na phone */
+            }
         }
 
         body {
@@ -72,11 +78,9 @@
             background: rgba(184, 149, 127, 0.05);
         }
 
-        .heading span {
-            color: #b8957f;
-        }
+        .heading span { color: #b8957f; }
 
-        /* --- HEADER (INAYOS PARA SA MOBILE) --- */
+        /* --- HEADER --- */
         header {
             position: fixed;
             top: 0;
@@ -95,13 +99,9 @@
             font-size: 3rem;
             color: #ffffff;
             font-weight: bolder;
-            /* Tinanggal ang margin-left: -8rem para hindi sumiksik */
         }
 
-        header .logo span {
-            color: #b8957f;
-            font-weight: bolder;
-        }
+        header .logo span { color: #b8957f; }
 
         header .navbar a {
             font-size: 2rem;
@@ -109,17 +109,13 @@
             color: #ffffff;
         }
 
-        header .navbar a:hover {
-            color: #b79d8d;
-        }
+        header .navbar a:hover { color: #b79d8d; }
 
-        header #toggler { 
-            display: none; 
-        }
+        header #toggler { display: none; }
 
         header .fa-bars {
             font-size: 3rem;
-            color: #ffffff; /* Puting kulay para kita sa brown background */
+            color: #ffffff;
             border-radius: .5rem;
             padding: .5rem 1.5rem;
             cursor: pointer;
@@ -127,14 +123,9 @@
             display: none;
         }
 
-        /* MOBILE & TABLET HEADER FIX */
         @media (max-width: 991px) {
-            header {
-                padding: 2rem;
-            }
-            header .fa-bars {
-                display: block; /* Ipapakita ang hamburger menu */
-            }
+            header { padding: 2rem; }
+            header .fa-bars { display: block; }
             header .navbar {
                 position: absolute;
                 top: 100%;
@@ -145,22 +136,20 @@
                 display: none;
                 flex-direction: column;
             }
-            header #toggler:checked ~ .navbar {
-                display: flex; /* Lalabas ang menu kapag pinindot ang hamburger */
-            }
+            header #toggler:checked ~ .navbar { display: flex; }
             header .navbar a {
                 display: block;
                 margin: 1.5rem;
                 padding: 1.5rem;
                 background: #fff;
                 border: .1rem solid rgba(0, 0, 0, .1);
-                color: var(--brown); /* Brown text para madaling basahin */
-                font-size: 2rem;
+                color: var(--brown);
+                font-size: 2.5rem; /* Medyo pinalaki para madaling pindutin */
                 text-align: center;
             }
         }
 
-        /* HOME SECTION */
+        /* --- HOME SECTION --- */
         .home {
             display: flex;
             align-items: center;
@@ -179,7 +168,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.40); /* Pinalalim ang dilim para kitang-kita ang text */
+            background: rgba(0, 0, 0, 0.40);
             z-index: -1;
         }
 
@@ -198,9 +187,7 @@
             font-weight: 700;
             color: #fff;
             line-height: 1.3;
-            padding: 0;
             margin-bottom: 1.5rem;
-            text-align: center;
             text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.65);
         }
 
@@ -209,9 +196,7 @@
             font-size: 2rem;
             font-weight: 600;
             color: #fff;
-            padding: 0;
             margin-bottom: 1rem;
-            line-height: 1.5;
             text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
@@ -220,10 +205,8 @@
             font-size: 1.5rem;
             font-weight: 500;
             color: #fff;
-            padding: 0;
             margin: 0 auto 1.5rem;
             line-height: 1.7;
-            text-align: center;
             text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
@@ -246,14 +229,13 @@
         @media (max-width: 600px) {
             .home {
                 min-height: 80vh;
-                padding: 15rem 5% 5rem; /* Inayos ang padding sa taas para hindi matakpan ng header */
+                padding: 15rem 5% 5rem;
             }
-            .home .content span {
-                font-size: 1.6rem;
-            }
+            .home .content span { font-size: 1.8rem; }
+            .home .content p { font-size: 1.4rem; }
         }
 
-        /* ABOUT SECTION */
+        /* --- ABOUT SECTION --- */
         .about { background: #fff; }
 
         .about .row {
@@ -307,7 +289,7 @@
 
         .about .btn:hover { background: #b8957f; }
 
-        /* EXPLORE HOLY CROSS PARISH */
+        /* --- EXPLORE HOLY CROSS PARISH --- */
         .explore-hcp {
             background: #b8957f;
             text-align: center;
@@ -404,7 +386,7 @@
             .explore-hcp .swiper-slide p { font-size: 1.3rem; }
         }
 
-        /* SERVICES SECTION */
+        /* --- SERVICES SECTION --- */
         .services {
             background: #60472d;
             padding: 5rem 9%;
@@ -465,7 +447,7 @@
             .services .box { padding: 2.5rem 2rem; }
         }
 
-        /* VIDEO SECTION */
+        /* --- VIDEO SECTION --- */
         .video-section {
             background: #fff;
             text-align: center;
@@ -505,7 +487,7 @@
             .video-section h2 { font-size: 2.5rem; }
         }
 
-        /* SOCIAL MEDIA SECTION */
+        /* --- SOCIAL MEDIA SECTION --- */
         .social-media {
             background: #fff;
             padding: 4rem 9%;
@@ -580,7 +562,7 @@
             .social-media .social-links { grid-template-columns: 1fr; }
         }
 
-        /* FOOTER */
+        /* --- FOOTER --- */
         footer {
             padding: 2rem 7%;
             text-align: center;
@@ -597,10 +579,11 @@
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fa fa-bars"></label>
 
-        <a href="#home" class="logo">Holy Cross Parish<span>.</span></a>
+        <a href="index.html" class="logo">Holy Cross Parish<span>.</span></a>
 
         <nav class="navbar">
-            <a href="home.html">Home</a>
+            <!-- BINAGO NATIN ITO PARA SA HOME -->
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="news.html">News &amp; Updates</a>
             <a href="directory.html">Directory</a>
