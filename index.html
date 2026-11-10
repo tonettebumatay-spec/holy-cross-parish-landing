@@ -31,6 +31,7 @@
         .heading { text-align: center; font-size: 4rem; color: #333; padding: 1rem; margin: 2rem 0; background: rgba(184, 149, 127, 0.05); }
         .heading span { color: #b8957f; }
 
+        /* --- HEADER --- */
         header { position: fixed; top: 0; left: 0; right: 0; background: var(--brown); padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1); }
         header .logo { font-size: 3rem; color: #ffffff; font-weight: bolder; }
         header .logo span { color: #b8957f; }
@@ -39,14 +40,17 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
+        /* INAYOS NA HEADER PARA SA MOBILE */
         @media (max-width: 991px) {
-            header { padding: 2rem; }
+            header { padding: 1.5rem 5%; } /* Binawasan ang padding para magkasya */
             header .fa-bars { display: block; }
+            header .logo { font-size: 2.2rem; } /* Pinaliit ang font ng logo */
             header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
-            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2.5rem; text-align: center; }
+            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2rem; text-align: center; }
         }
 
+        /* --- HOME SECTION --- */
         .home { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 12rem 9% 5rem; background: url('images/hcp-roadview.png') no-repeat; background-size: cover; background-position: center 6%; position: relative; text-align: center; isolation: isolate; }
         .home::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.40); z-index: -1; }
         .home .content { width: 100%; max-width: 85rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -57,11 +61,12 @@
         .home .btn:hover { background: #4c2b08; }
 
         @media (max-width: 600px) {
-            .home { min-height: 80vh; padding: 15rem 5% 5rem; }
+            .home { min-height: 80vh; padding: 12rem 5% 5rem; }
             .home .content span { font-size: 1.8rem; }
             .home .content p { font-size: 1.4rem; }
         }
 
+        /* --- ABOUT SECTION --- */
         .about { background: #fff; }
         .about .row { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; padding: 2rem 0; padding-bottom: 3rem; }
         .about .row .image-container { flex: 1 1 40rem; position: relative; }
@@ -72,6 +77,7 @@
         .about .btn { display: inline-block; margin-top: 1rem; border-radius: 5rem; background: var(--brown); color: #fff; padding: .9rem 3.5rem; cursor: pointer; font-size: 1.7rem; }
         .about .btn:hover { background: #b8957f; }
 
+        /* --- EXPLORE SECTION --- */
         .explore-hcp { background: #b8957f; text-align: center; padding: 4rem 9%; overflow: hidden; }
         .explore-hcp h1 { font-family: 'Fredoka', sans-serif; font-size: 4rem; font-weight: 700; color: #fff; text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.6); margin-bottom: 4rem; }
         .explore-hcp h1 i { font-size: 4rem; margin-right: .5rem; }
@@ -89,6 +95,7 @@
         @media (max-width: 1024px) { .explore-hcp { padding: 4rem 5%; } .explore-hcp h1 { font-size: 3.5rem; } .explore-hcp .swiper-slide img { height: 20rem; } .explore-hcp .swiper-slide h2 { font-size: 2rem; } .explore-hcp .swiper-slide p { font-size: 1.3rem; } }
         @media (max-width: 600px) { .explore-hcp { padding: 3rem 4%; } .explore-hcp h1 { font-size: 2.7rem; margin-bottom: 2.5rem; } .explore-hcp h1 i { font-size: 2.7rem; } .explore-hcp .swiper-slide img { height: 22rem; border-radius: 2rem; } .explore-hcp .swiper-slide h2 { font-size: 2rem; } .explore-hcp .swiper-slide p { font-size: 1.3rem; } }
 
+        /* --- SERVICES SECTION --- */
         .services { background: #60472d; padding: 5rem 9%; text-align: center; }
         .services .heading { background: transparent; color: #fff; margin-bottom: 3rem; }
         .services .box-container { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
@@ -101,33 +108,34 @@
         @media (max-width: 900px) { .services .box-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .services { padding: 3rem 5%; } .services .box-container { grid-template-columns: 1fr; gap: 1.5rem; } .services .box { padding: 2.5rem 2rem; } }
 
-        /* --- VIDEO SECTION (Inayos para sa FB Reel) --- */
+        /* --- VIDEO SECTION (FB REEL FIX) --- */
         .video-section { background: #fff; text-align: center; padding: 5rem 9%; }
         .video-section h2 { font-size: 3.5rem; color: #4c2b08; margin-bottom: 2rem; }
         .video-section h2 span { color: #b8957f; }
         
         .video-container {
-            max-width: 400px; /* Pinaliit natin ang max-width para magmukhang Reel */
+            max-width: 350px; /* Sinakto ang lapad */
+            width: 100%;
             margin: 0 auto;
             position: relative;
             border-radius: 1.5rem;
             overflow: hidden;
             box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
             background: #000;
+            /* Tinanggal ang fixed height dito */
         }
 
-        /* Ginawa nating 100% ang iframe sa loob ng container */
         .video-container iframe {
             display: block;
             width: 100% !important;
-            height: 700px !important; /* Mataas na height para sa vertical reel */
+            height: 600px !important; /* Tamang height para sa FB Reel */
             border: none;
         }
 
         @media (max-width: 600px) {
             .video-section h2 { font-size: 2.5rem; }
             .video-container iframe {
-                height: 600px !important; /* Inaayos ang height sa phone */
+                height: 550px !important; /* Inayos ang height para sa phone screen */
             }
         }
 
@@ -147,6 +155,7 @@
         @media (max-width: 900px) { .social-media .social-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .social-media { padding: 3rem 5%; } .social-media h2 { font-size: 2.5rem; } .social-media .social-links { grid-template-columns: 1fr; } }
 
+        /* --- FOOTER --- */
         footer { padding: 2rem 7%; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; }
     </style>
 </head>
@@ -230,7 +239,6 @@
     <section class="video-section" id="video">
         <h2>Feast of the <span>Exaltation</span></h2>
         <div class="video-container">
-            <!-- FB REEL EMBED CODE -->
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1421252250149248%2F&show_text=false&width=560&t=0" 
                     scrolling="no" 
                     frameborder="0" 
