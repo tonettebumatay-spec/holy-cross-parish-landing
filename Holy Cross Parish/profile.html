@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - Barangay San Pedro Ili</title>
+  <link rel="icon" href="San-Pedro-Ili-Seal.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding-top: 120px;
+      background: #f5f5f5;
+    }
+
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .profile-left, .profile-right {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .profile-left {
+      width: 300px;
+      text-align: center;
+    }
+
+    .profile-left i {
+      font-size: 100px;
+      color: #0F6A7B;
+      margin-bottom: 20px;
+    }
+
+    .profile-left h2 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .profile-left button {
+      background: #0F6A7B;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .profile-left button:hover {
+      background: #0d5b6a;
+    }
+
+    .profile-right {
+      flex: 1;
+    }
+
+    .profile-right h3 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #0F6A7B;
+    }
+
+    .info-group {
+      margin-bottom: 20px;
+    }
+
+    .info-group label {
+      font-size: 16px;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .info-group div {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Reuse your header and footer styles */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #0F6A7B;
+      padding: 2rem 9%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    }
+    
+    header .logo {
+      font-size: 3rem;
+      color: #ffffff;
+      font-weight: bolder;
+      margin-left: -8rem;
+    }
+
+    header .logo span {
+      color: #02eaff;
+      font-weight: bolder;
+    }
+
+    .footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      margin-top: 40px;
+    }
+
+    .footer span {
+      color: #0F6A7B;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="home.html" class="logo">Pedro Insider<span>.</span></a>
+</header>
+
+<!-- PROFILE CONTENT -->
+<div class="profile-container">
+
+  <!-- LEFT BOX -->
+  <div class="profile-left">
+    <!-- Gender icon (Female = user-circle, Male = user-tie) -->
+    <i class="fa-solid fa-circle-user"></i> 
+    <h2>Loreanne Rodelas</h2>
+    <button>Change Password</button>
+  </div>
+
+  <!-- RIGHT BOX -->
+  <div class="profile-right">
+    <h3>Personal Information</h3>
+
+    <div class="info-group">
+      <label>Full Name</label>
+      <div>LOREANNE LUCIDO RODELAS</div>
+    </div>
+
+    <div class="info-group">
+      <label>Email Address</label>
+      <div>rodelasloreanne@gmail.com</div>
+    </div>
+
+    <div class="info-group">
+      <label>Gender</label>
+      <div>F</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Created by <span>Loreanne L. Rodelas & Ivan Daryll C. Dela Cruz</span>, BSIT - 2C<br>All Rights Reserved 2025
+</div>
+
+</body>
+</html>

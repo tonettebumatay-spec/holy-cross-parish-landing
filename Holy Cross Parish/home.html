@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Holy Cross Parish</title>
+
+    <link rel="icon" href="images/hcp-logo.png" type="image/png">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        :root {
+            --brown: #4c2b08;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins, sans-serif;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: .2s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+            overflow-x: hidden;
+        }
+
+        /* FIXED PAGE LOAD ANIMATION */
+        body {
+            background-color: #ffffff;
+            opacity: 1;
+            animation: pageFadeIn .8s ease-out both;
+        }
+
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            body {
+                animation: none;
+            }
+
+            * {
+                scroll-behavior: auto;
+                transition: none !important;
+            }
+        }
+
+        section {
+            padding: 2rem 9%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4rem;
+            color: #333;
+            padding: 1rem;
+            margin: 2rem 0;
+            background: rgba(184, 149, 127, 0.05);
+        }
+
+        .heading span {
+            color: #b8957f;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--brown);
+            padding: 2rem 9%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+
+        header .logo {
+            font-size: 3rem;
+            color: #ffffff;
+            font-weight: bolder;
+            margin-left: -8rem;
+        }
+
+        header .logo span {
+            color: #b8957f;
+            font-weight: bolder;
+        }
+
+        header .navbar a {
+            font-size: 2rem;
+            padding: 0 1.5rem;
+            color: #ffffff;
+        }
+
+        header .navbar a:hover {
+            color: #b79d8d;
+        }
+
+        header #toggler {
+            display: none;
+        }
+
+        header .fa-bars {
+            font-size: 3rem;
+            color: #333;
+            border-radius: .5rem;
+            padding: .5rem 1.5rem;
+            cursor: pointer;
+            border: .1rem solid rgba(0, 0, 0, .3);
+            display: none;
+        }
+
+        /* HOME SECTION */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 12rem 9% 5rem;
+            background: url('images/hcp-roadview.png') no-repeat;
+            background-size: cover;
+            background-position: center 6%;
+            position: relative;
+            text-align: center;
+            isolation: isolate;
+        }
+
+        .home::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.30);
+            z-index: -1;
+        }
+
+        .home .content {
+            width: 100%;
+            max-width: 85rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .home .content h2 {
+            font-size: clamp(2.8rem, 3.2vw, 4rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.65);
+        }
+
+        .home .content span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            padding: 0;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .home .content p {
+            max-width: 75rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
+            padding: 0;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+            text-align: center;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .home .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 5rem;
+            background: #b8957f;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .home .btn:hover {
+            background: #4c2b08;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: #fff;
+        }
+
+        .about .row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+            padding-bottom: 3rem;
+        }
+
+        .about .row .image-container {
+            flex: 1 1 40rem;
+            position: relative;
+        }
+
+        .about .row .image-container img {
+            width: 100%;
+            border: 1.5rem solid #fff;
+            border-radius: .5rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about .row .image-container h3 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            background: #fff;
+            width: 100%;
+            padding: 1rem 2rem;
+            text-align: center;
+            mix-blend-mode: screen;
+        }
+
+        .about .row .content {
+            flex: 1 1 40rem;
+        }
+
+        .about .row .content h3 {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .about .row .content p {
+            font-size: 1.5rem;
+            color: #555;
+            padding-top: 1rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .about .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 5rem;
+            background: var(--brown);
+            color: #fff;
+            padding: .9rem 3.5rem;
+            cursor: pointer;
+            font-size: 1.7rem;
+        }
+
+        .about .btn:hover {
+            background: #b8957f;
+        }
+
+        /* EXPLORE HOLY CROSS PARISH */
+        .explore-hcp {
+            background: #b8957f;
+            text-align: center;
+            padding: 4rem 9%;
+            overflow: hidden;
+        }
+
+        .explore-hcp h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 4rem;
+        }
+
+        .explore-hcp h1 i {
+            font-size: 4rem;
+            margin-right: .5rem;
+        }
+
+        .explore-hcp h1 span {
+            color: #fff;
+        }
+
+        .explore-hcp .mySwiper {
+            width: 100%;
+            position: relative;
+            padding-bottom: 3rem;
+        }
+
+        .explore-hcp .swiper-slide {
+            background: transparent;
+            padding: 0 1rem;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .explore-hcp .swiper-slide img {
+            width: 100%;
+            height: 23rem;
+            object-fit: cover;
+            border-radius: 3rem;
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        .explore-hcp .swiper-slide h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .explore-hcp .swiper-slide p {
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #fff;
+            text-align: justify;
+        }
+
+        .explore-hcp .swiper-button-next,
+        .explore-hcp .swiper-button-prev {
+            color: #fff;
+            width: 3rem;
+            height: 3rem;
+            margin-top: -1rem;
+        }
+
+        .explore-hcp .swiper-button-next::after,
+        .explore-hcp .swiper-button-prev::after {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .explore-hcp .swiper-pagination {
+            bottom: 0;
+        }
+
+        .explore-hcp .swiper-pagination-bullet {
+            background: #fff;
+            opacity: .5;
+        }
+
+        .explore-hcp .swiper-pagination-bullet-active {
+            background: #fff;
+            opacity: 1;
+        }
+
+        /* TABLET */
+        @media (max-width: 1024px) {
+            .explore-hcp {
+                padding: 4rem 5%;
+            }
+
+            .explore-hcp h1 {
+                font-size: 3.5rem;
+            }
+
+            .explore-hcp .swiper-slide img {
+                height: 20rem;
+            }
+
+            .explore-hcp .swiper-slide h2 {
+                font-size: 2rem;
+            }
+
+            .explore-hcp .swiper-slide p {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .explore-hcp {
+                padding: 3rem 4%;
+            }
+
+            .explore-hcp h1 {
+                font-size: 2.7rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .explore-hcp h1 i {
+                font-size: 2.7rem;
+            }
+
+            .explore-hcp .swiper-slide img {
+                height: 22rem;
+                border-radius: 2rem;
+            }
+
+            .explore-hcp .swiper-slide h2 {
+                font-size: 2rem;
+            }
+
+            .explore-hcp .swiper-slide p {
+                font-size: 1.3rem;
+            }
+        }
+
+        
+        /* SERVICES SECTION */
+        .services {
+            background: #60472d;
+            padding: 5rem 9%;
+            text-align: center;
+        }
+
+        .services .heading {
+            background: transparent;
+            color: #fff;
+            margin-bottom: 3rem;
+        }
+
+        .services .heading span {
+            color: #b8957f;
+        }
+
+        .services .box-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2.5rem;
+        }
+
+        .services .box {
+            padding: 3rem 2rem;
+            border: .3rem solid rgba(255, 255, 255, 0.25);
+            border-radius: 1.5rem;
+            color: #ffffff;
+            text-align: center;
+            transition: transform .3s ease, background .3s ease;
+        }
+
+        .services .box:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .services .box i {
+            font-size: 4rem;
+            color: #b8957f;
+            margin-bottom: 1.5rem;
+        }
+
+        .services .box h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .services .box p {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #f3eae4;
+        }
+
+        /* SERVICES RESPONSIVENESS */
+        @media (max-width: 900px) {
+            .services .box-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services {
+                padding: 3rem 5%;
+            }
+
+            .services .box-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .services .box {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+    
+
+        /* SOCIAL MEDIA SECTION */
+        .social-media {
+            background: #fff;
+            padding: 4rem 9%;
+            text-align: center;
+        }
+
+        .social-media h2 {
+            font-size: 3rem;
+            color: #4c2b08;
+            margin-bottom: 1rem;
+        }
+
+        .social-media h2 span {
+            color: #b8957f;
+        }
+
+        .social-media > p {
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .social-media .social-links {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .social-media .social-item {
+            padding: 2.5rem 2rem;
+            border: .3rem solid rgba(76, 43, 8, 0.15);
+            border-radius: 1.5rem;
+            background: #fff;
+        }
+
+        .social-media .social-item i {
+            font-size: 3.5rem;
+            color: #4c2b08;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-media .social-item h3 {
+            font-size: 1.8rem;
+            color: #4c2b08;
+            margin-bottom: 1rem;
+        }
+
+        .social-media .social-item p {
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-media .social-item a {
+            display: inline-block;
+            background: #4c2b08;
+            color: #fff;
+            padding: .9rem 2rem;
+            border-radius: 3rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .social-media .social-item a:hover {
+            background: #b8957f;
+        }
+
+        @media (max-width: 900px) {
+            .social-media .social-links {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .social-media {
+                padding: 3rem 5%;
+            }
+
+            .social-media h2 {
+                font-size: 2.5rem;
+            }
+
+            .social-media .social-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 7%;
+            text-align: center;
+            background: var(--brown);
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        footer a {
+            color: #02eaff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fa fa-bars"></label>
+
+        <a href="#home" class="logo">Holy Cross Parish<span>.</span></a>
+
+        <nav class="navbar">
+            <a href="home.html"><strong>Home</strong></a>
+            <a href="about.html"><strong>About</strong></a>
+            <a href="news.html"><strong>News &amp; Updates</strong></a>
+            <a href="directory.html"><strong>Directory</strong></a>
+            <a href="contact.html"><strong>Contact</strong></a>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section class="home" id="home">
+        <div class="content">
+            <h2>
+                Holy Cross Parish:<br>
+                Rooted in Faith, United in Christ
+            </h2>
+
+            <span>
+                <strong>A community united by faith, prayer, and service.</strong>
+            </span>
+
+            <p>
+                Bound by faith and united as one community, Holy Cross Parish
+                is a place where hearts are strengthened, lives are transformed,
+                and hope is shared. Through prayer, fellowship, and service,
+                experience a parish community that lives the Gospel and walks
+                together in Christ.
+            </p>
+
+            <a href="#about" class="btn">
+                Know More About Holy Cross Parish
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <h1 class="heading">About<span> Holy Cross Parish</span></h1>
+
+        <div class="row">
+            <div class="image-container">
+                <img src="images/HCP3.jpg" alt="Holy Cross Parish">
+            </div>
+
+            <div class="content">
+                <h3>Holy Cross Parish Alcala, Pangasinan</h3>
+
+                <p>
+                    Established in 1881, Holy Cross Parish Church in Alcala,
+                    Pangasinan, is a historic Roman Catholic church under the
+                    Diocese of Urdaneta. Dedicated to the Holy Cross, it serves
+                    as a place of worship, prayer, and spiritual guidance for
+                    the local community.
+                </p>
+
+                <p>
+                    Known for its religious heritage and devotion to the Holy
+                    Cross, the parish remains a significant spiritual landmark
+                    and pilgrimage destination for Catholics in Pangasinan
+                    and nearby communities.
+                </p>
+
+                <a href="about.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section class="explore-hcp" id="explore">
+
+        <h1 class="explore-heading">
+            <i class="fa fa-search"></i>
+            Explore Holy Cross Parish
+        </h1>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="images/hcp-old-convent.png" alt="The Convent">
+
+                    <h2>THE CONVENT</h2>
+
+                    <p>
+                        The historic convent of Holy Cross Parish in Alcala,
+                        Pangasinan, traces its beginnings to the parish's
+                        establishment in 1881. Its construction was initiated
+                        by Fr. Eduardo Samaniego, O.P., and continued by fellow
+                        Dominican priests. It stands as part of the parish's
+                        rich religious heritage.
+                    </p>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="images/hcp-altar1.jpg" alt="The Altar">
+
+                    <h2>THE ALTAR</h2>
+
+                    <p>
+                        The main altar of Holy Cross Parish serves as the heart
+                        of the church's worship and prayer. Dedicated to the
+                        Holy Cross, it reflects the parish's deep devotion to
+                        Christ and stands as a sacred focal point for the
+                        celebration of the Holy Eucharist.
+                    </p>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="images/hcp-reliquiary.png" alt="The Reliquiary">
+
+                    <h2>THE RELIQUIARY</h2>
+
+                    <p>
+                        Holy Cross Parish houses a sacred relic of the Holy
+                        Cross, preserved for the veneration of the faithful.
+                        Located in a side chapel, the reliquary serves as a
+                        meaningful destination for prayer and devotion,
+                        reflecting the parish's deep faith and religious
+                        heritage.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </section>
+
+
+
+<!-- SERVICES SECTION -->
+<section class="services" id="services">
+
+    <h1 class="heading">
+        Our Parish Services
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fa fa-heart"></i>
+            <h3>Wedding</h3>
+            <p>
+                Celebrate the sacrament of matrimony and begin your
+                married life together in faith, love, and God's blessing.
+            </p>
+        </div>
+
+        <div class="box">
+            <i class="fa fa-child"></i>
+            <h3>Baptismal</h3>
+            <p>
+                Welcome your child or loved one into the Catholic faith
+                through the Sacrament of Baptism.
+            </p>
+        </div>
+
+        <div class="box">
+            <i class="fa fa-plus-square"></i>
+            <h3>Funeral Mass</h3>
+            <p>
+                Gather in prayer to honor the departed and entrust
+                their soul to God's eternal mercy.
+            </p>
+        </div>
+
+        <div class="box">
+            <i class="fa fa-shield"></i>
+            <h3>Confirmation</h3>
+            <p>
+                Strengthen your faith and receive the gifts of the
+                Holy Spirit through the Sacrament of Confirmation.
+            </p>
+        </div>
+
+        <div class="box">
+            <i class="fa fa-book"></i>
+            <h3>Communion</h3>
+            <p>
+                Deepen your relationship with Christ through the
+                reception of Holy Communion and the Eucharist.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<!-- SERVICES SECTION END -->
+
+
+
+<!-- SOCIAL MEDIA SECTION -->
+<section class="social-media" id="social-media">
+
+    <h2>Connect With <span>Holy Cross Parish</span></h2>
+
+    <p>
+        Follow our Facebook pages for parish announcements,
+        youth activities, choir updates, and community events.
+    </p>
+
+    <div class="social-links">
+
+        <!-- HOLY CROSS PARISH FACEBOOK -->
+        <div class="social-item">
+            <i class="fa fa-facebook-official"></i>
+            <h3>Holy Cross Parish</h3>
+            <p>
+                Visit our official parish Facebook page for
+                church announcements, schedules, and parish updates.
+            </p>
+            <a href="https://www.facebook.com/holycrossparishalcala"
+               target="_blank"
+               rel="noopener noreferrer">
+                Visit Facebook
+            </a>
+        </div>
+
+        <!-- COMMISSION ON YOUTH FACEBOOK -->
+        <div class="social-item">
+            <i class="fa fa-users"></i>
+            <h3>Commission on Youth</h3>
+            <p>
+                Stay updated on youth ministry activities,
+                faith formation, and upcoming parish youth events.
+            </p>
+            <a href="https://www.facebook.com/commisiononyouthalcala"
+               target="_blank"
+               rel="noopener noreferrer">
+                Visit Facebook
+            </a>
+        </div>
+
+        <!-- PARISH CHOIR FACEBOOK -->
+        <div class="social-item">
+            <i class="fa fa-music"></i>
+            <h3>Holy Cross Parish Choir</h3>
+            <p>
+                Follow the parish choir for choir activities,
+                liturgical music, and singing ministry updates.
+            </p>
+            <a href="https://www.facebook.com/profile.php?id=100093386001597"
+               target="_blank"
+               rel="noopener noreferrer">
+                Visit Facebook
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<!-- SOCIAL MEDIA SECTION END -->
+
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <span id="year">2026</span> Holy Cross Parish.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- SWIPER JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Initialize the Explore Holy Cross Parish carousel.
+            const exploreElement = document.querySelector(
+                '.explore-hcp .mySwiper'
+            );
+
+            if (exploreElement && typeof Swiper !== 'undefined') {
+                new Swiper(exploreElement, {
+                    loop: true,
+                    speed: 600,
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+
+                    navigation: {
+                        nextEl: '.explore-hcp .swiper-button-next',
+                        prevEl: '.explore-hcp .swiper-button-prev'
+                    },
+
+                    pagination: {
+                        el: '.explore-hcp .swiper-pagination',
+                        clickable: true
+                    },
+
+                    breakpoints: {
+                        0: {
+                            slidesPerView: 1,
+                            spaceBetween: 10
+                        },
+
+                        600: {
+                            slidesPerView: 2,
+                            spaceBetween: 10
+                        },
+
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 10
+                        }
+                    }
+                });
+            }
+
+            // Automatically update the copyright year.
+            const yearElement = document.getElementById('year');
+
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+
+</body>
+</html>
