@@ -15,7 +15,6 @@
         :root { --brown: #4c2b08; }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; outline: none; border: none; text-decoration: none; transition: .2s linear; }
-
         html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
 
         @media (max-width: 768px) { html { font-size: 50%; } }
@@ -34,12 +33,14 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
+        /* INAYOS NA HEADER PARA SA MOBILE */
         @media (max-width: 991px) {
-            header { padding: 2rem; }
-            header .fa-bars { display: block; }
+            header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; }
+            header .fa-bars { display: block; margin-right: 1rem; }
+            header .logo { font-size: 2.2rem; }
             header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
-            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2.5rem; text-align: center; }
+            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2rem; text-align: center; }
         }
 
         .about { padding-top: 12rem; padding-left: 9%; padding-right: 9%; }
