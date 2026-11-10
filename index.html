@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Holy Cross Parish</title>
-
     <link rel="icon" href="images/hcp-logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -16,16 +14,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         :root { --brown: #4c2b08; }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; outline: none; border: none; text-decoration: none; transition: .2s linear; }
         html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
-
         @media (max-width: 768px) { html { font-size: 50%; } }
         @media (max-width: 450px) { html { font-size: 45%; } }
 
         body { background-color: #ffffff; opacity: 1; animation: pageFadeIn .8s ease-out both; }
         @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @media (prefers-reduced-motion: reduce) { body { animation: none; } * { scroll-behavior: auto; transition: none !important; } }
 
         section { padding: 2rem 9%; }
         .heading { text-align: center; font-size: 4rem; color: #333; padding: 1rem; margin: 2rem 0; background: rgba(184, 149, 127, 0.05); }
@@ -40,10 +35,9 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
-        /* INAYOS NA HEADER PARA MAGKADIKIT SILA SA MOBILE */
         @media (max-width: 991px) {
-            header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; } /* Ginawang flex-start at nilagyan ng gap */
-            header .fa-bars { display: block; margin-right: 1rem; } /* Nilagyan ng margin-right */
+            header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; }
+            header .fa-bars { display: block; margin-right: 1rem; }
             header .logo { font-size: 2.2rem; }
             header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
@@ -59,12 +53,7 @@
         .home .content p { max-width: 75rem; font-size: 1.5rem; font-weight: 500; color: #fff; margin: 0 auto 1.5rem; line-height: 1.7; text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8); }
         .home .btn { display: inline-block; margin-top: 1rem; border-radius: 5rem; background: #b8957f; color: #fff; padding: 1rem 2.5rem; cursor: pointer; font-size: 1.5rem; font-weight: 600; text-align: center; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }
         .home .btn:hover { background: #4c2b08; }
-
-        @media (max-width: 600px) {
-            .home { min-height: 80vh; padding: 12rem 5% 5rem; }
-            .home .content span { font-size: 1.8rem; }
-            .home .content p { font-size: 1.4rem; }
-        }
+        @media (max-width: 600px) { .home { min-height: 80vh; padding: 12rem 5% 5rem; } .home .content span { font-size: 1.8rem; } .home .content p { font-size: 1.4rem; } }
 
         /* --- ABOUT SECTION --- */
         .about { background: #fff; }
@@ -91,7 +80,6 @@
         .explore-hcp .swiper-pagination { bottom: 0; }
         .explore-hcp .swiper-pagination-bullet { background: #fff; opacity: .5; }
         .explore-hcp .swiper-pagination-bullet-active { background: #fff; opacity: 1; }
-
         @media (max-width: 1024px) { .explore-hcp { padding: 4rem 5%; } .explore-hcp h1 { font-size: 3.5rem; } .explore-hcp .swiper-slide img { height: 20rem; } .explore-hcp .swiper-slide h2 { font-size: 2rem; } .explore-hcp .swiper-slide p { font-size: 1.3rem; } }
         @media (max-width: 600px) { .explore-hcp { padding: 3rem 4%; } .explore-hcp h1 { font-size: 2.7rem; margin-bottom: 2.5rem; } .explore-hcp h1 i { font-size: 2.7rem; } .explore-hcp .swiper-slide img { height: 22rem; border-radius: 2rem; } .explore-hcp .swiper-slide h2 { font-size: 2rem; } .explore-hcp .swiper-slide p { font-size: 1.3rem; } }
 
@@ -104,22 +92,37 @@
         .services .box i { font-size: 4rem; color: #b8957f; margin-bottom: 1.5rem; }
         .services .box h3 { font-size: 2rem; color: #fff; margin-bottom: 1rem; }
         .services .box p { font-size: 1.4rem; line-height: 1.7; color: #f3eae4; }
-
         @media (max-width: 900px) { .services .box-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .services { padding: 3rem 5%; } .services .box-container { grid-template-columns: 1fr; gap: 1.5rem; } .services .box { padding: 2.5rem 2rem; } }
 
-        /* --- VIDEO SECTION (FB REEL FIX) --- */
+        /* --- VIDEO SECTION (YOUTUBE NO SUGGESTIONS) --- */
         .video-section { background: #fff; text-align: center; padding: 5rem 9%; }
         .video-section h2 { font-size: 3.5rem; color: #4c2b08; margin-bottom: 2rem; }
         .video-section h2 span { color: #b8957f; }
         
-        .video-container { max-width: 350px; width: 100%; margin: 0 auto; position: relative; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 1rem 2rem rgba(0,0,0,0.15); background: #000; }
+        .video-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            position: relative; 
+            padding-bottom: 45%; /* 16:9 Aspect Ratio */
+            height: 0; 
+            overflow: hidden; 
+            border-radius: 1.5rem; 
+            box-shadow: 0 1rem 2rem rgba(0,0,0,0.15); 
+        }
 
-        .video-container iframe { display: block; width: 100% !important; height: 600px !important; border: none; }
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100% !important; 
+            height: 100% !important; 
+            border: none; 
+        }
 
         @media (max-width: 600px) {
             .video-section h2 { font-size: 2.5rem; }
-            .video-container iframe { height: 550px !important; }
+            .video-container { padding-bottom: 56.25%; } /* 16:9 Aspect Ratio for mobile */
         }
 
         /* --- SOCIAL MEDIA SECTION --- */
@@ -134,7 +137,6 @@
         .social-media .social-item p { font-size: 1.3rem; color: #555; line-height: 1.6; margin-bottom: 1.5rem; }
         .social-media .social-item a { display: inline-block; background: #4c2b08; color: #fff; padding: .9rem 2rem; border-radius: 3rem; font-size: 1.3rem; font-weight: 600; }
         .social-media .social-item a:hover { background: #b8957f; }
-
         @media (max-width: 900px) { .social-media .social-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .social-media { padding: 3rem 5%; } .social-media h2 { font-size: 2.5rem; } .social-media .social-links { grid-template-columns: 1fr; } }
 
@@ -222,8 +224,12 @@
     <section class="video-section" id="video">
         <h2>Feast of the <span>Exaltation</span></h2>
         <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1421252250149248%2F&show_text=false&width=560&t=0" 
-                    scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true">
+            <!-- Binago natin ang link: tinanggal ang ?si= at nilagyan ng ?rel=0 -->
+            <iframe src="https://www.youtube.com/embed/1Ta4ZQ14eXc?rel=0" 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
             </iframe>
         </div>
     </section>
