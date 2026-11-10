@@ -43,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* FIXED PAGE LOAD ANIMATION */
         body {
             background-color: #ffffff;
             opacity: 1;
@@ -55,7 +54,6 @@
             to { opacity: 1; }
         }
 
-        /* Respect reduced-motion preferences */
         @media (prefers-reduced-motion: reduce) {
             body { animation: none; }
             * { scroll-behavior: auto; transition: none !important; }
@@ -78,7 +76,7 @@
             color: #b8957f;
         }
 
-        /* HEADER */
+        /* --- HEADER (INAYOS PARA SA MOBILE) --- */
         header {
             position: fixed;
             top: 0;
@@ -97,7 +95,7 @@
             font-size: 3rem;
             color: #ffffff;
             font-weight: bolder;
-            margin-left: -8rem;
+            /* Tinanggal ang margin-left: -8rem para hindi sumiksik */
         }
 
         header .logo span {
@@ -115,16 +113,51 @@
             color: #b79d8d;
         }
 
-        header #toggler { display: none; }
+        header #toggler { 
+            display: none; 
+        }
 
         header .fa-bars {
             font-size: 3rem;
-            color: #333;
+            color: #ffffff; /* Puting kulay para kita sa brown background */
             border-radius: .5rem;
             padding: .5rem 1.5rem;
             cursor: pointer;
-            border: .1rem solid rgba(0, 0, 0, .3);
+            border: .1rem solid rgba(255, 255, 255, 0.3);
             display: none;
+        }
+
+        /* MOBILE & TABLET HEADER FIX */
+        @media (max-width: 991px) {
+            header {
+                padding: 2rem;
+            }
+            header .fa-bars {
+                display: block; /* Ipapakita ang hamburger menu */
+            }
+            header .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #eee;
+                border-top: .1rem solid rgba(0, 0, 0, .1);
+                display: none;
+                flex-direction: column;
+            }
+            header #toggler:checked ~ .navbar {
+                display: flex; /* Lalabas ang menu kapag pinindot ang hamburger */
+            }
+            header .navbar a {
+                display: block;
+                margin: 1.5rem;
+                padding: 1.5rem;
+                background: #fff;
+                border: .1rem solid rgba(0, 0, 0, .1);
+                color: var(--brown); /* Brown text para madaling basahin */
+                font-size: 2rem;
+                text-align: center;
+            }
         }
 
         /* HOME SECTION */
@@ -146,7 +179,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.30);
+            background: rgba(0, 0, 0, 0.40); /* Pinalalim ang dilim para kitang-kita ang text */
             z-index: -1;
         }
 
@@ -161,7 +194,7 @@
         }
 
         .home .content h2 {
-            font-size: clamp(2.8rem, 3.2vw, 4rem);
+            font-size: clamp(2.8rem, 4vw, 4.5rem);
             font-weight: 700;
             color: #fff;
             line-height: 1.3;
@@ -210,6 +243,16 @@
 
         .home .btn:hover { background: #4c2b08; }
 
+        @media (max-width: 600px) {
+            .home {
+                min-height: 80vh;
+                padding: 15rem 5% 5rem; /* Inayos ang padding sa taas para hindi matakpan ng header */
+            }
+            .home .content span {
+                font-size: 1.6rem;
+            }
+        }
+
         /* ABOUT SECTION */
         .about { background: #fff; }
 
@@ -234,18 +277,6 @@
             box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
             height: 100%;
             object-fit: cover;
-        }
-
-        .about .row .image-container h3 {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 3rem;
-            background: #fff;
-            width: 100%;
-            padding: 1rem 2rem;
-            text-align: center;
-            mix-blend-mode: screen;
         }
 
         .about .row .content { flex: 1 1 40rem; }
@@ -297,8 +328,6 @@
             font-size: 4rem;
             margin-right: .5rem;
         }
-
-        .explore-hcp h1 span { color: #fff; }
 
         .explore-hcp .mySwiper {
             width: 100%;
@@ -358,7 +387,6 @@
         .explore-hcp .swiper-pagination-bullet { background: #fff; opacity: .5; }
         .explore-hcp .swiper-pagination-bullet-active { background: #fff; opacity: 1; }
 
-        /* TABLET */
         @media (max-width: 1024px) {
             .explore-hcp { padding: 4rem 5%; }
             .explore-hcp h1 { font-size: 3.5rem; }
@@ -367,7 +395,6 @@
             .explore-hcp .swiper-slide p { font-size: 1.3rem; }
         }
 
-        /* MOBILE */
         @media (max-width: 600px) {
             .explore-hcp { padding: 3rem 4%; }
             .explore-hcp h1 { font-size: 2.7rem; margin-bottom: 2.5rem; }
@@ -389,8 +416,6 @@
             color: #fff;
             margin-bottom: 3rem;
         }
-
-        .services .heading span { color: #b8957f; }
 
         .services .box-container {
             display: grid;
@@ -430,7 +455,6 @@
             color: #f3eae4;
         }
 
-        /* SERVICES RESPONSIVENESS */
         @media (max-width: 900px) {
             .services .box-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
@@ -454,15 +478,13 @@
             margin-bottom: 2rem;
         }
 
-        .video-section h2 span {
-            color: #b8957f;
-        }
+        .video-section h2 span { color: #b8957f; }
 
         .video-container {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
-            padding-bottom: 45%; /* 16:9 aspect ratio */
+            padding-bottom: 45%;
             height: 0;
             overflow: hidden;
             border-radius: 1.5rem;
@@ -479,12 +501,8 @@
         }
 
         @media (max-width: 600px) {
-            .video-container {
-                padding-bottom: 56.25%; /* Para sa mobile screen */
-            }
-            .video-section h2 {
-                font-size: 2.5rem;
-            }
+            .video-container { padding-bottom: 56.25%; }
+            .video-section h2 { font-size: 2.5rem; }
         }
 
         /* SOCIAL MEDIA SECTION */
@@ -570,14 +588,11 @@
             color: #ffffff;
             font-size: 1.4rem;
         }
-
-        footer a { color: #02eaff; }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER SECTION -->
     <header>
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fa fa-bars"></label>
@@ -585,15 +600,14 @@
         <a href="#home" class="logo">Holy Cross Parish<span>.</span></a>
 
         <nav class="navbar">
-            <a href="home.html"><strong>Home</strong></a>
-            <a href="about.html"><strong>About</strong></a>
-            <a href="news.html"><strong>News &amp; Updates</strong></a>
-            <a href="directory.html"><strong>Directory</strong></a>
-            <a href="contact.html"><strong>Contact</strong></a>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="news.html">News &amp; Updates</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <!-- HOME SECTION -->
     <section class="home" id="home">
         <div class="content">
             <h2>
@@ -619,7 +633,6 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <h1 class="heading">About<span> Holy Cross Parish</span></h1>
 
@@ -651,9 +664,7 @@
         </div>
     </section>
 
-    <!-- EXPLORE SECTION -->
     <section class="explore-hcp" id="explore">
-
         <h1 class="explore-heading">
             <i class="fa fa-search"></i>
             Explore Holy Cross Parish
@@ -661,7 +672,6 @@
 
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-
                 <div class="swiper-slide">
                     <img src="images/hcp-old-convent.png" alt="The Convent">
                     <h2>THE CONVENT</h2>
@@ -699,25 +709,18 @@
                         heritage.
                     </p>
                 </div>
-
             </div>
 
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
-
     </section>
 
-    <!-- SERVICES SECTION -->
     <section class="services" id="services">
-
-        <h1 class="heading">
-            Our Parish Services
-        </h1>
+        <h1 class="heading">Our Parish Services</h1>
 
         <div class="box-container">
-
             <div class="box">
                 <i class="fa fa-heart"></i>
                 <h3>Wedding</h3>
@@ -762,13 +765,9 @@
                     reception of Holy Communion and the Eucharist.
                 </p>
             </div>
-
         </div>
-
     </section>
-    <!-- SERVICES SECTION END -->
 
-    <!-- VIDEO SECTION -->
     <section class="video-section" id="video">
         <h2>Feast of the <span>Exaltation</span></h2>
         <div class="video-container">
@@ -780,21 +779,15 @@
             </iframe>
         </div>
     </section>
-    <!-- VIDEO SECTION END -->
 
-    <!-- SOCIAL MEDIA SECTION -->
     <section class="social-media" id="social-media">
-
         <h2>Connect With <span>Holy Cross Parish</span></h2>
-
         <p>
             Follow our Facebook pages for parish announcements,
             youth activities, choir updates, and community events.
         </p>
 
         <div class="social-links">
-
-            <!-- HOLY CROSS PARISH FACEBOOK -->
             <div class="social-item">
                 <i class="fa fa-facebook-official"></i>
                 <h3>Holy Cross Parish</h3>
@@ -809,7 +802,6 @@
                 </a>
             </div>
 
-            <!-- COMMISSION ON YOUTH FACEBOOK -->
             <div class="social-item">
                 <i class="fa fa-users"></i>
                 <h3>Commission on Youth</h3>
@@ -824,7 +816,6 @@
                 </a>
             </div>
 
-            <!-- PARISH CHOIR FACEBOOK -->
             <div class="social-item">
                 <i class="fa fa-music"></i>
                 <h3>Holy Cross Parish Choir</h3>
@@ -838,13 +829,9 @@
                     Visit Facebook
                 </a>
             </div>
-
         </div>
-
     </section>
-    <!-- SOCIAL MEDIA SECTION END -->
 
-    <!-- FOOTER -->
     <footer>
         <p>
             &copy; <span id="year">2026</span> Holy Cross Parish.
@@ -852,16 +839,11 @@
         </p>
     </footer>
 
-    <!-- SWIPER JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
-            // Initialize the Explore Holy Cross Parish carousel.
-            const exploreElement = document.querySelector(
-                '.explore-hcp .mySwiper'
-            );
+            const exploreElement = document.querySelector('.explore-hcp .mySwiper');
 
             if (exploreElement && typeof Swiper !== 'undefined') {
                 new Swiper(exploreElement, {
@@ -869,17 +851,14 @@
                     speed: 600,
                     slidesPerView: 3,
                     spaceBetween: 10,
-
                     navigation: {
                         nextEl: '.explore-hcp .swiper-button-next',
                         prevEl: '.explore-hcp .swiper-button-prev'
                     },
-
                     pagination: {
                         el: '.explore-hcp .swiper-pagination',
                         clickable: true
                     },
-
                     breakpoints: {
                         0: { slidesPerView: 1, spaceBetween: 10 },
                         600: { slidesPerView: 2, spaceBetween: 10 },
@@ -888,14 +867,11 @@
                 });
             }
 
-            // Automatically update the copyright year.
             const yearElement = document.getElementById('year');
-
             if (yearElement) {
                 yearElement.textContent = new Date().getFullYear();
             }
         });
     </script>
-
 </body>
 </html>
