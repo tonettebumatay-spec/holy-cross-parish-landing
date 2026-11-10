@@ -40,11 +40,11 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
-        /* INAYOS NA HEADER PARA SA MOBILE */
+        /* INAYOS NA HEADER PARA MAGKADIKIT SILA SA MOBILE */
         @media (max-width: 991px) {
-            header { padding: 1.5rem 5%; } /* Binawasan ang padding para magkasya */
-            header .fa-bars { display: block; }
-            header .logo { font-size: 2.2rem; } /* Pinaliit ang font ng logo */
+            header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; } /* Ginawang flex-start at nilagyan ng gap */
+            header .fa-bars { display: block; margin-right: 1rem; } /* Nilagyan ng margin-right */
+            header .logo { font-size: 2.2rem; }
             header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
             header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2rem; text-align: center; }
@@ -113,30 +113,13 @@
         .video-section h2 { font-size: 3.5rem; color: #4c2b08; margin-bottom: 2rem; }
         .video-section h2 span { color: #b8957f; }
         
-        .video-container {
-            max-width: 350px; /* Sinakto ang lapad */
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
-            background: #000;
-            /* Tinanggal ang fixed height dito */
-        }
+        .video-container { max-width: 350px; width: 100%; margin: 0 auto; position: relative; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 1rem 2rem rgba(0,0,0,0.15); background: #000; }
 
-        .video-container iframe {
-            display: block;
-            width: 100% !important;
-            height: 600px !important; /* Tamang height para sa FB Reel */
-            border: none;
-        }
+        .video-container iframe { display: block; width: 100% !important; height: 600px !important; border: none; }
 
         @media (max-width: 600px) {
             .video-section h2 { font-size: 2.5rem; }
-            .video-container iframe {
-                height: 550px !important; /* Inayos ang height para sa phone screen */
-            }
+            .video-container iframe { height: 550px !important; }
         }
 
         /* --- SOCIAL MEDIA SECTION --- */
@@ -240,11 +223,7 @@
         <h2>Feast of the <span>Exaltation</span></h2>
         <div class="video-container">
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1421252250149248%2F&show_text=false&width=560&t=0" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
-                    allowFullScreen="true">
+                    scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true">
             </iframe>
         </div>
     </section>
