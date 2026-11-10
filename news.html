@@ -12,115 +12,52 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         :root { --brown: #4c2b08; }
         
-        * {
-            margin: 0; padding: 0; box-sizing: border-box;
-            font-family: Poppins, sans-serif; text-decoration: none; transition: .2s linear;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; text-decoration: none; transition: .2s linear; }
         html { font-size: 62.5%; scroll-behavior: smooth; scroll-padding-top: 6rem; overflow-x: hidden; }
 
-        /* MOBILE FONT SIZE FIX */
         @media (max-width: 768px) { html { font-size: 50%; } }
         @media (max-width: 450px) { html { font-size: 45%; } }
 
         body { background-color: #ffffff; }
 
-        /* HEADER */
-        header {
-            position: fixed; top: 0; left: 0; right: 0; background: var(--brown);
-            padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between;
-            z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-        }
+        header { position: fixed; top: 0; left: 0; right: 0; background: var(--brown); padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); }
         header .logo { font-size: 3rem; color: #ffffff; font-weight: bolder; }
         header .logo span { color: #b8957f; }
         header .navbar a { font-size: 2rem; padding: 0 1.5rem; color: #ffffff; }
         header .navbar a:hover { color: #b79d8d; }
         header #toggler { display: none; }
-        header .fa-bars {
-            font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem;
-            cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none;
-        }
+        header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
         @media (max-width: 991px) {
             header { padding: 2rem; }
             header .fa-bars { display: block; }
-            header .navbar {
-                position: absolute; top: 100%; left: 0; right: 0; background: #eee;
-                border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column;
-            }
+            header .navbar { position: absolute; top: 100%; left: 0; right: 0; background: #eee; border-top: .1rem solid rgba(0, 0, 0, .1); display: none; flex-direction: column; }
             header #toggler:checked ~ .navbar { display: flex; }
-            header .navbar a {
-                display: block; margin: 1.5rem; padding: 1.5rem;
-                background: #fff; border: .1rem solid rgba(0, 0, 0, .1);
-                color: var(--brown); font-size: 2.5rem; text-align: center;
-            }
+            header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2.5rem; text-align: center; }
         }
 
-        /* NEWS SECTION */
-        .news {
-            background-color: #f1f3f5;
-            padding: 12rem 9% 5rem;
-            min-height: 100vh;
-        }
-
-        .news .heading {
-            font-size: 3.5rem;
-            text-align: center;
-            color: #333;
-            margin-bottom: 3rem;
-        }
-
+        .news { background-color: #f1f3f5; padding: 12rem 9% 5rem; min-height: 100vh; }
+        .news .heading { font-size: 3.5rem; text-align: center; color: #333; margin-bottom: 3rem; }
         .news .heading span { color: #b8957f; }
 
-        .news .news-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-        }
+        .news .news-container { display: flex; justify-content: center; align-items: flex-start; width: 100%; }
 
-        .facebook-post-container {
-            width: 100%;
-            max-width: 600px;
-            background: #fff;
-            border: 1px solid #dfe3e8;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            overflow: hidden; /* Para hindi lumabas yung iframe */
-        }
+        .facebook-post-container { width: 100%; max-width: 600px; background: #fff; border: 1px solid #dfe3e8; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); overflow: hidden; }
 
-        .facebook-post {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Ginawang 100% width para magkasya sa phone */
-        .facebook-post iframe {
-            display: block;
-            width: 100% !important; 
-            max-width: 500px;
-            min-height: 500px;
-            border: none;
-        }
+        /* FIX: Ginawang 100% para hindi lumabas sa screen */
+        .facebook-post { width: 100%; display: flex; justify-content: center; }
+        .facebook-post iframe { display: block; width: 100% !important; max-width: 500px; border: none; }
 
         @media (max-width: 768px) {
             .news { padding: 10rem 4% 4rem; }
             .news .heading { font-size: 2.7rem; }
             .facebook-post-container { padding: 1rem; }
-            .facebook-post iframe { min-height: 480px; }
         }
 
-        /* FOOTER */
-        footer {
-            padding: 2rem 7%; text-align: center; background: var(--brown);
-            color: #ffffff; font-size: 1.4rem; margin-top: 5rem;
-        }
+        footer { padding: 2rem 7%; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; margin-top: 5rem; }
     </style>
 </head>
 <body>
-
     <header>
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fa fa-bars"></label>
@@ -136,14 +73,11 @@
 
     <section class="news" id="news">
         <h1 class="heading">News & <span>Updates</span></h1>
-
         <div class="news-container">
             <div class="facebook-post-container">
                 <div class="facebook-post">
                     <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D452676493560614%26set%3Da.452676470227283&show_text=true&width=500" 
-                        width="500" 
-                        height="600" 
-                        style="border:none;overflow:hidden" 
+                        style="border:none;overflow:hidden; width:100%; height:600px;" 
                         scrolling="no" 
                         frameborder="0" 
                         allowfullscreen="true" 
@@ -154,12 +88,7 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; <span id="year">2026</span> Holy Cross Parish. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <footer><p>&copy; <span id="year">2026</span> Holy Cross Parish. All Rights Reserved.</p></footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
