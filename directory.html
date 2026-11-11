@@ -20,6 +20,7 @@
 
         body { background-color: #ffffff; }
 
+        /* HEADER */
         header { position: fixed; top: 0; left: 0; right: 0; background: var(--brown); padding: 2rem 9%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); }
         header .logo { font-size: 3rem; color: #ffffff; font-weight: bolder; }
         header .logo span { color: #b8957f; }
@@ -28,7 +29,6 @@
         header #toggler { display: none; }
         header .fa-bars { font-size: 3rem; color: #ffffff; border-radius: .5rem; padding: .5rem 1.5rem; cursor: pointer; border: .1rem solid rgba(255, 255, 255, 0.3); display: none; }
 
-        /* INAYOS NA HEADER PARA SA MOBILE */
         @media (max-width: 991px) {
             header { padding: 1.5rem 5%; justify-content: flex-start; gap: 2rem; }
             header .fa-bars { display: block; margin-right: 1rem; }
@@ -38,14 +38,52 @@
             header .navbar a { display: block; margin: 1.5rem; padding: 1.5rem; background: #fff; border: .1rem solid rgba(0, 0, 0, .1); color: var(--brown); font-size: 2rem; text-align: center; }
         }
 
+        /* DIRECTORY SECTION */
         .directory { background-color: #f9f9f9; padding: 12rem 9% 5rem; min-height: 100vh; }
         .directory .heading { font-size: 3.5rem; text-align: center; color: #333; margin-bottom: 3rem; }
         .directory .heading span { color: #b8957f; }
-        .directory .organization-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 1.5rem; background: #ffffff; border: 1px solid rgba(76, 43, 8, 0.12); border-radius: 0.8rem; box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08); overflow-x: auto; }
-        .directory .organization-container img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0.4rem; min-width: 600px; }
+        
+        /* ITO YUNG CONTAINER NA PWEDE I-SCROLL PAKALIWA/PKANAN */
+        .directory .organization-container {
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 1.5rem;
+            background: #ffffff; 
+            border: 1px solid rgba(76, 43, 8, 0.12); 
+            border-radius: 0.8rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08); 
+            
+            overflow-x: auto; /* Pinapa-scroll pakanan */
+            -webkit-overflow-scrolling: touch; /* Para swabe ang scroll sa iPhone */
+        }
 
-        @media (max-width: 768px) { .directory { padding: 10rem 4% 4rem; } .directory .heading { font-size: 2.7rem; margin-bottom: 2rem; } .directory .organization-container { padding: 0.7rem; } }
+        /* Dito natin pinaliit nang bahagya yung image para sa mobile, pero pwede pa rin i-zoom/scroll */
+        .directory .organization-container img {
+            display: block; 
+            width: 100%; 
+            height: auto; 
+            object-fit: contain; 
+            border-radius: 0.4rem;
+            min-width: 700px; /* PIPILITIN NIYANG LUMAKI PARA MAKITA YUNG DETAILS AT PWEDE I-SCROLL */
+        }
 
+        /* SCROLLBAR DESIGN (Para madaling mahawakan sa phone) */
+        .directory .organization-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .directory .organization-container::-webkit-scrollbar-thumb {
+            background: #b8957f;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .directory { padding: 10rem 4% 4rem; }
+            .directory .heading { font-size: 2.7rem; margin-bottom: 2rem; }
+            .directory .organization-container { padding: 0.7rem; }
+        }
+
+        /* FOOTER */
         footer { padding: 2rem 7%; text-align: center; background: var(--brown); color: #ffffff; font-size: 1.4rem; margin-top: 5rem; }
     </style>
 </head>
