@@ -43,7 +43,6 @@
         .directory .heading { font-size: 3.5rem; text-align: center; color: #333; margin-bottom: 3rem; }
         .directory .heading span { color: #b8957f; }
         
-        /* ITO YUNG CONTAINER NA PWEDE I-SCROLL PAKALIWA/PKANAN */
         .directory .organization-container {
             width: 100%; 
             max-width: 1200px; 
@@ -53,34 +52,62 @@
             border: 1px solid rgba(76, 43, 8, 0.12); 
             border-radius: 0.8rem;
             box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08); 
-            
-            overflow-x: auto; /* Pinapa-scroll pakanan */
-            -webkit-overflow-scrolling: touch; /* Para swabe ang scroll sa iPhone */
         }
 
-        /* Dito natin pinaliit nang bahagya yung image para sa mobile, pero pwede pa rin i-zoom/scroll */
+        /* Image - Pina-fit natin sa screen */
         .directory .organization-container img {
             display: block; 
             width: 100%; 
             height: auto; 
             object-fit: contain; 
             border-radius: 0.4rem;
-            min-width: 700px; /* PIPILITIN NIYANG LUMAKI PARA MAKITA YUNG DETAILS AT PWEDE I-SCROLL */
+            cursor: zoom-in; /* Ipapakita na pwedeng i-click */
         }
 
-        /* SCROLLBAR DESIGN (Para madaling mahawakan sa phone) */
-        .directory .organization-container::-webkit-scrollbar {
-            height: 8px;
+        /* Modal/Lightbox para sa Zoom */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
         }
-        .directory .organization-container::-webkit-scrollbar-thumb {
-            background: #b8957f;
-            border-radius: 4px;
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 10vh;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #b8957f;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
             .directory { padding: 10rem 4% 4rem; }
             .directory .heading { font-size: 2.7rem; margin-bottom: 2rem; }
             .directory .organization-container { padding: 0.7rem; }
+            .modal-content { width: 100%; margin-top: 20vh; }
         }
 
         /* FOOTER */
@@ -104,11 +131,33 @@
     <section class="directory" id="directory">
         <h1 class="heading"><span>Holy Cross Parish</span> Directory</h1>
         <div class="organization-container">
-            <img src="images/hcp-organizational-chart.png" alt="Holy Cross Parish Organizational Chart" loading="lazy">
+            <!-- Nilagyan natin ng onclick para mag-zoom -->
+            <img src="images/hcp-organizational-chart.png" alt="Holy Cross Parish Organizational Chart" loading="lazy" onclick="openModal()">
         </div>
     </section>
 
+    <!-- MODAL PARA SA ZOOM -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01" src="images/hcp-organizational-chart.png">
+    </div>
+
     <footer><p>&copy; <span id="year">2026</span> Holy Cross Parish. All Rights Reserved.</p></footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Function para mag-open ng zoomed image
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        // Function para mag-close
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
